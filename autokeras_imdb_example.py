@@ -5,6 +5,10 @@ from tensorflow import keras
 
 from clearml import Task
 
+import os
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
 # Connecting ClearML with the current process,
 # from here on everything is logged automatically
 task = Task.init(project_name="autokeras", task_name="autokeras imdb example with scalars")
